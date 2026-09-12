@@ -452,7 +452,7 @@
     e.preventDefault();
     status.textContent = 'Sending...';
     const formData = new FormData(form);
-    formData.append('access_key', 'YOUR_WEB3FORMS_ACCESS_KEY');
+    formData.append('access_key', 'e3f091f5-4e4c-43c9-a18c-840be3a301cd');
     formData.append('subject', 'New Inquiry from ToolsRhino Website');
     try {
       const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
