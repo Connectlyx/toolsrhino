@@ -67,39 +67,46 @@ ARROW_LONG = '<svg class="arr" viewBox="0 0 22 10" fill="none" stroke="currentCo
 EXT = '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l6-6M4 3h5v5"/></svg>'
 WA_SVG = '<svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8A13 13 0 1 0 16 3Zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.9 1.2 2.9.8 3.4.7.5 0 1.9-.8 2.1-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4Z"/></svg>'
 
+from content_industries import INDUSTRIES
+from content_articles import ARTICLES
+
 NAV = [
-    ("index.html", "Home", None),
+    ("index.html", "Home", None, None),
     ("services.html", "Services", [
         ("management-systems.html", "layers", "Management Systems", "Custom portals for industries and businesses"),
         ("ai-automation.html", "bot", "AI Automation", "Assistants, workflows and smart reporting"),
         ("saas-development.html", "rocket", "SaaS Product Creation", "From idea to a scalable subscription product"),
         ("services.html", "sparkle", "All services", "See everything we build and support"),
-    ]),
-    ("industries.html", "Industries", None),
-    ("about.html", "About", None),
-    ("contact.html", "Contact", None),
+    ], "cols"),
+    ("industries.html", "Industries",
+        [(f"industries/{i['slug']}.html", i["icon"], i["name"].replace("&amp;", "&"), "") for i in INDUSTRIES]
+        + [("industries.html", "sparkle", "All industries", "")], "cols compact"),
+    ("insights.html", "Insights", None, None),
+    ("about.html", "About", None, None),
+    ("contact.html", "Contact", None, None),
 ]
 
 
 def nav(cur):
     items = []
-    for href, label, sub in NAV:
+    for href, label, sub, kind in NAV:
         if sub:
-            active = " active" if cur in [s[0] for s in sub] else ""
+            active = " active" if (cur == href or cur in [s[0] for s in sub]) else ""
             subs = "".join(
-                f'<a href="{h}"><span class="ic">{icon(i)}</span><span><strong>{t}</strong><small>{d}</small></span></a>'
+                f'<a href="{h}"><span class="ic">{icon(i)}</span><span><strong>{t}</strong>' + (f'<small>{d}</small>' if d else '') + '</span></a>'
                 for h, i, t, d in sub)
             items.append(
                 f'<li class="has-sub{active}"><a class="m" href="{href}">{label}'
                 f'<svg class="caret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="m2 3.5 3 3 3-3"/></svg></a>'
-                f'<div class="sub">{subs}</div></li>')
+                f'<div class="sub {kind}">{subs}</div></li>')
         else:
-            cur_attr = ' aria-current="page"' if href == cur else ""
+            on = cur == href or (href == "insights.html" and cur.startswith("insights/"))
+            cur_attr = ' aria-current="page"' if on else ""
             items.append(f'<li><a class="m" href="{href}"{cur_attr}>{label}</a></li>')
     mob = []
-    for href, label, sub in NAV:
+    for href, label, sub, kind in NAV:
         mob.append(f'<a href="{href}">{label}</a>')
-        if sub:
+        if label == "Services":
             mob += [f'<a class="child" href="{h}">{t}</a>' for h, i, t, d in sub[:3]]
     return f'''
 <a class="skip" href="#main">Skip to content</a>
@@ -115,6 +122,7 @@ def nav(cur):
 
 
 def footer():
+    ind = "".join(f'<li><a href="industries/{i["slug"]}.html">{i["name"]}</a></li>' for i in INDUSTRIES[:6])
     return f'''
 <footer>
   <div class="wrap">
@@ -129,9 +137,10 @@ def footer():
         <li><a href="ai-automation.html">AI Automation</a></li>
         <li><a href="saas-development.html">SaaS Product Creation</a></li>
         <li><a href="services.html">All Services</a></li></ul></div>
+      <div><h4>Industries</h4><ul>{ind}<li><a href="industries.html">All industries</a></li></ul></div>
       <div><h4>Company</h4><ul>
-        <li><a href="industries.html">Industries</a></li>
         <li><a href="about.html">About ToolsRhino</a></li>
+        <li><a href="insights.html">Insights</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="{PARENT}" target="_blank" rel="noopener">Connectlyx.com</a></li></ul></div>
       <div><h4>Talk to us</h4><ul>
@@ -149,6 +158,7 @@ def footer():
 '''
 
 
+
 def faq_html(items):
     out = "".join(f"<details><summary>{escape(q)}</summary><p>{escape(a)}</p></details>" for q, a in items)
     return f'<div class="faq reveal">{out}</div>'
@@ -159,13 +169,17 @@ def faq_schema(items):
             "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in items]}
 
 
-def crumb_schema(slug, label):
+def crumb_schema(slug, label, trail=()):
     items = [("Home", SITE + "/")]
     if slug != "index.html":
-        items.append((label, f"{SITE}/{slug}"))
+        items += [(n, SITE + "/" + h.replace(".html", "")) for n, h in trail]
+        items.append((label, f"{SITE}/{slug.replace('.html', '')}"))
     return {"@context": "https://schema.org", "@type": "BreadcrumbList",
             "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": u} for i, (n, u) in enumerate(items)]}
 
+
+WEBSITE = {"@context": "https://schema.org", "@type": "WebSite", "name": "ToolsRhino", "url": SITE + "/",
+           "publisher": {"@type": "Organization", "name": "ToolsRhino"}}
 
 ORG = {
     "@context": "https://schema.org", "@type": "Organization", "name": "ToolsRhino", "url": SITE + "/",
@@ -181,28 +195,46 @@ ORG = {
 }
 
 
-def page(slug, title, desc, body, label=None, schemas=None, nav_cur=None):
-    schemas = [ORG if slug == "index.html" else None, crumb_schema(slug, label or title)] + (schemas or [])
+import re as _re
+
+def clean(html):
+    """Convert relative links to root-absolute clean URLs (Vercel cleanUrls)."""
+    html = _re.sub(r'(href|src)="assets/', r'\1="/assets/', html)
+    html = _re.sub(r'href="index\.html"', 'href="/"', html)
+    html = _re.sub(r'href="([a-z0-9\-/]+)\.html"', r'href="/\1"', html)
+    return html
+
+
+def page(slug, title, desc, body, label=None, schemas=None, nav_cur=None, trail=(), og_type="website"):
+    schemas = [ORG if slug == "index.html" else None, WEBSITE if slug == "index.html" else None,
+               crumb_schema(slug, label or title, trail)] + (schemas or [])
     ld = "".join(f'<script type="application/ld+json">{json.dumps(s, ensure_ascii=False)}</script>\n' for s in schemas if s)
-    url = f"{SITE}/" if slug == "index.html" else f"{SITE}/{slug}"
-    return f'''<!DOCTYPE html>
+    url = f"{SITE}/" if slug == "index.html" else f"{SITE}/{slug.replace('.html', '')}"
+    html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)}</title>
 <meta name="description" content="{escape(desc)}">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#060D24">
 <link rel="canonical" href="{url}">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <meta property="og:site_name" content="ToolsRhino">
-<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="{og_type}">
 <meta property="og:title" content="{escape(title)}">
 <meta property="og:description" content="{escape(desc)}">
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{SITE}/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{escape(title)}">
+<meta name="twitter:description" content="{escape(desc)}">
+<meta name="twitter:image" content="{SITE}/assets/img/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -218,18 +250,22 @@ def page(slug, title, desc, body, label=None, schemas=None, nav_cur=None):
 </body>
 </html>
 '''
+    return clean(html)
 
 
-def page_hero(label, h1, lead, ctas=True, slug_label=None, h1_html=None):
+def page_hero(label, h1, lead, ctas=True, slug_label=None, h1_html=None, trail=(), meta=""):
     cta = ""
     if ctas:
         cta = (f'<div class="cta-row"><a class="btn btn-primary" href="{WA_DEMO}" target="_blank" rel="noopener">Book a Demo {ARROW}</a>'
                f'<a class="btn btn-ghost" href="contact.html">Talk to our team</a></div>')
+    tr = "".join(f'<a href="{h}">{n}</a><span>/</span>' for n, h in trail)
+    m = f'<p class="meta">{meta}</p>' if meta else ""
     return f'''<section class="page-hero">
   <canvas class="ink" aria-hidden="true"></canvas>
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span aria-current="page">{label}</span></nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span>{tr}<span aria-current="page">{label}</span></nav>
     <h1 class="h1">{h1_html or escape(h1)}</h1>
+    {m}
     <p class="lead">{lead}</p>
     {cta}
   </div>

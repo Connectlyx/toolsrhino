@@ -1,5 +1,10 @@
 from lib import *
 
+def related(*slugs):
+    from seo_pages import post_card, ART
+    return f'<section class="sec light" style="padding-block:80px"><div class="wrap">{head("Related reading", "Go deeper before you decide.")}<div class="grid g2" style="max-width:860px;margin-inline:auto">' + ''.join(post_card(ART[x], n * .06) for n, x in enumerate(slugs)) + '</div></div></section>'
+
+
 def vis(chips):
     return '<div class="stack" style="width:100%">' + "".join(
         f'<div class="row-chip"><div><b>{a}</b><br><span>{b}</span></div><em class="{c}">{d}</em></div>' for a, b, c, d in chips) + "</div>"
@@ -59,7 +64,7 @@ def services():
 
     faq = f'<section class="sec" style="padding-top:20px"><div class="wrap">{head("FAQ", "About our services")}{faq_html(FAQ_SERVICES)}</div></section>'
     body = hero + main + extras + models + faq + cta_band()
-    return page("services.html", "Services | AI Automation, SaaS & Management System Development | ToolsRhino",
+    return page("services.html", "AI Automation & Management System Services | ToolsRhino",
                 "Explore ToolsRhino's services: custom management system development, AI automation, workflow automation and SaaS product creation for businesses worldwide.",
                 body, label="Services", schemas=[faq_schema(FAQ_SERVICES), {"@context": "https://schema.org", "@type": "Service", "name": "AI automation, SaaS and management system development", "provider": {"@type": "Organization", "name": "ToolsRhino", "url": SITE}, "areaServed": "Worldwide"}])
 
@@ -79,6 +84,8 @@ FAQ_MS = [
     ("How much does a management system cost?",
      "It depends on scope, the number of modules and how much needs integrating. After a short discovery call we give you a clear proposal, so there are no surprises."),
 ]
+
+SLUGS = ['rice-mill-management-software', 'flour-mill-management-software', 'textile-mill-management-software', 'poultry-dairy-farm-management-software', 'gym-management-software', 'clinic-management-software', 'restaurant-cafe-management-software']
 
 def management():
     hero = page_hero("Management Systems", "Management systems that finally match the way you work.",
@@ -118,7 +125,7 @@ def management():
 
     inds = ["Rice mills", "Flour mills", "Textile units", "Poultry, cattle &amp; dairy", "Gyms &amp; fitness", "Clinics", "Cafés &amp; restaurants", "Pharmacies", "Schools", "Warehouses", "Retail &amp; distribution", "Logistics"]
     ind = f'''<section class="sec light"><div class="wrap">{head("Industries", "Proven foundations, tailored to your sector.", "Our rice mill management system is live today, and further industry systems are on the way. If yours is not listed, we build it to order.")}
-  <div class="chips reveal" style="justify-content:center">{"".join(f"<span style='background:#fff;border-color:#CDE4F6;color:var(--navy)'>{i}</span>" for i in inds)}</div>
+  <div class="chips reveal" style="justify-content:center">{"".join((f"<a href='industries/{SLUGS[n]}.html' style='padding:9px 18px;border-radius:999px;border:1px solid #CDE4F6;background:#fff;color:var(--navy);font-size:14.5px'>{i}</a>" if n < len(SLUGS) else f"<span style='background:#fff;border-color:#CDE4F6;color:var(--navy)'>{i}</span>") for n, i in enumerate(inds))}</div>
   <p class="center reveal" style="margin-top:40px"><a class="link-arrow" href="industries.html">Browse industry systems {ARROW}</a></p></div></section>'''
 
     proc = f'''<section class="sec"><div class="wrap">{head("Our process", "How we build your management system.")}{timeline([
@@ -130,9 +137,9 @@ def management():
 
     faq = f'<section class="sec light" style="padding-top:90px"><div class="wrap">{head("FAQ", "Management system questions")}<div class="faqwrap">{faq_html(FAQ_MS)}</div></div></section>'
     faq = faq.replace('class="sec light"', 'class="sec"')
-    body = hero + what + compare + modules + ind + proc + faq + cta_band()
-    return page("management-systems.html", "Custom Management System Development for Industries & Businesses | ToolsRhino",
-                "Custom management software for mills, farms, clinics, gyms and restaurants. One secure portal for orders, inventory, payroll and reports, with a built-in AI assistant.",
+    body = hero + what + compare + modules + ind + proc + faq + related('what-is-a-management-system', 'excel-vs-custom-management-software') + cta_band()
+    return page("management-systems.html", "Custom Management System Development | ToolsRhino",
+                "Custom management software for mills, farms, clinics, gyms and restaurants: orders, inventory, payroll and reports in one portal with a built-in AI assistant.",
                 body, label="Management Systems", schemas=[faq_schema(FAQ_MS), {"@context": "https://schema.org", "@type": "Service", "name": "Custom management system development", "provider": {"@type": "Organization", "name": "ToolsRhino", "url": SITE}, "areaServed": "Worldwide"}])
 
 
@@ -190,9 +197,9 @@ def ai():
         ("Monitor and refine", "We review results, handle edge cases and extend automation to the next process in line.")])}</div></section>'''
 
     faq = f'<section class="sec"><div class="wrap">{head("FAQ", "AI automation questions")}{faq_html(FAQ_AI)}</div></section>'
-    body = hero + what + func + resp + proc + faq + cta_band("Ready to hand the repetitive work to AI?", "Book a short call. We'll point out the three automations most likely to pay for themselves first.")
-    return page("ai-automation.html", "AI Automation Services & Workflow Automation for Business | ToolsRhino",
-                "Business process automation with AI: chat assistants, WhatsApp workflows, invoice processing and smart reporting that save hours and reduce errors. English and Urdu.",
+    body = hero + what + func + resp + proc + faq + related("ai-automation-examples-for-small-business", "automate-whatsapp-payment-reminders") + cta_band("Ready to hand the repetitive work to AI?", "Book a short call. We'll point out the three automations most likely to pay for themselves first.")
+    return page("ai-automation.html", "AI Automation Services for Business | ToolsRhino",
+                "Business process automation with AI: chat assistants, WhatsApp workflows, invoice processing and smart reporting that save hours. English and Urdu.",
                 body, label="AI Automation", schemas=[faq_schema(FAQ_AI), {"@context": "https://schema.org", "@type": "Service", "name": "AI automation services", "provider": {"@type": "Organization", "name": "ToolsRhino", "url": SITE}, "areaServed": "Worldwide"}])
 
 
@@ -239,7 +246,7 @@ def saas():
         ("Scale and extend", "Performance, new features, integrations and AI capabilities as demand grows.")])}</div></section>'''
     faq = f'<section class="sec light"><div class="wrap">{head("FAQ", "SaaS development questions")}{faq_html(FAQ_SAAS)}</div></section>'
     faq = faq.replace('class="sec light"', 'class="sec"')
-    body = hero + who + inc + proc + faq + cta_band("Have a product idea worth building?", "Share the idea. We'll help you shape the smallest version worth launching.")
+    body = hero + who + inc + proc + faq + related("saas-mvp-development-guide", "what-is-a-management-system") + cta_band("Have a product idea worth building?", "Share the idea. We'll help you shape the smallest version worth launching.")
     return page("saas-development.html", "SaaS Product Development & MVP Services | ToolsRhino",
                 "ToolsRhino builds SaaS products from idea to launch: multi-tenant architecture, subscription billing, admin tools and AI features for founders and businesses.",
                 body, label="SaaS Product Creation", schemas=[faq_schema(FAQ_SAAS), {"@context": "https://schema.org", "@type": "Service", "name": "SaaS product development", "provider": {"@type": "Organization", "name": "ToolsRhino", "url": SITE}, "areaServed": "Worldwide"}])

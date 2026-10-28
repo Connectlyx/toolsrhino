@@ -1,4 +1,6 @@
 from lib import *
+from content_industries import INDUSTRIES as _IND
+_SLUG = {i['name'].replace('&amp;','&').split(' Management')[0].lower(): i['slug'] for i in _IND}
 
 def industries():
     L = [
@@ -18,7 +20,13 @@ def industries():
         ("hardhat", "Construction &amp; Contracting", "Project budgets, site labour, materials, subcontractor payments and progress reports.", "Custom build", "custom"),
         ("scissors", "Salon &amp; Spa", "Bookings, stylist schedules, packages, inventory and reminders that cut no-shows.", "Custom build", "custom"),
     ]
-    cards = "".join(card(i, t, d, f'<span class="pill {k}">{p}</span>', delay=(n % 3) * .06) for n, (i, t, d, p, k) in enumerate(L))
+    def _lk(t):
+        key = t.replace('&amp;','&').split(' Management')[0].lower()
+        for k, v in _SLUG.items():
+            if key.startswith(k.split(',')[0]) or k.startswith(key.split(',')[0]):
+                return f'<p style="margin-top:14px"><a class="link-arrow" href="industries/{v}.html">Learn more {ARROW}</a></p>'
+        return ""
+    cards = "".join(card(i, t, d, f'<span class="pill {k}">{p}</span>' + _lk(t), delay=(n % 3) * .06) for n, (i, t, d, p, k) in enumerate(L))
     hero = page_hero("Industries", "Systems shaped around your industry.",
         "Every sector has its own rhythm, vocabulary and bottlenecks. Our management systems and automations are built to respect that, from the first screen to the last report.")
     body = hero + f'''<section class="sec"><div class="wrap">
@@ -30,7 +38,7 @@ def industries():
     <p style="margin-top:26px"><a class="btn btn-blue" href="contact.html">Describe your business {ARROW}</a></p></div>
     <div class="reveal" style="--d:.1s">{ticks(["Free demo built around your sector", "Fields, roles and reports tailored to you", "Data migration from spreadsheets and registers", "Bilingual English and Urdu interface", "Training for owners and staff"])}</div>
   </div></div></section>''' + cta_band()
-    return page("industries.html", "Industry Management Software | Rice Mill, Clinic, Gym, Restaurant & More | ToolsRhino",
+    return page("industries.html", "Industry Management Software Solutions | ToolsRhino",
                 "Management software built for your sector: rice mills, flour mills, textile units, farms, gyms, clinics, restaurants, pharmacies, schools and more.",
                 body, label="Industries")
 
@@ -101,7 +109,7 @@ def contact():
     <div class="form-note" id="formStatus" role="status">We typically reply within 24 hours.</div>
   </form>
 </div></div></section>''' + cta_band("Prefer to see it first?", "Book a live demo on WhatsApp and we'll walk you through a system built for your industry.")
-    return page("contact.html", "Contact ToolsRhino | Book a Demo for AI Automation & Management Systems",
+    return page("contact.html", "Contact ToolsRhino | Book a Demo",
                 "Contact ToolsRhino to book a demo. Email info@connectlyx.com, call +1 214 814 4539 or message us on WhatsApp. Serving businesses in the US and worldwide.",
                 body, label="Contact")
 

@@ -527,3 +527,40 @@ html:not(.js) .tabs{display:none}
 .light .pill.custom{color:#4B5E88;background:#F2F8FE;border-color:#D5E6F6}
 .light .chips span{background:#fff}
 .sec-tight{padding-top:0}
+
+/* ---- SEO content: articles, TOC, callouts, post cards, wider menus ---- */
+.sub.cols{width:560px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.sub.compact a{padding:10px 12px}
+.sub.compact small{display:none}
+.menu a.m{padding:0 14px}
+.meta{font-size:14px;color:var(--ice);margin:-6px 0 18px;letter-spacing:.02em}
+.article-wrap{max-width:780px;margin-inline:auto}
+.prose{font-size:1.08rem;line-height:1.8;color:#C9D8EE}
+.prose h2{font-size:clamp(1.55rem,2.6vw,2rem);margin:56px 0 16px;scroll-margin-top:110px}
+.prose p{margin:0 0 18px}
+.prose a{color:var(--ice);border-bottom:1px solid var(--line-strong);transition:.2s}
+.prose a:hover{color:#fff;border-color:#fff}
+.prose strong{color:#fff;font-weight:600}
+.prose ul,.prose ol{margin:0 0 22px;padding-left:1.3em}
+.prose ul{list-style:disc}.prose ol{list-style:decimal}
+.prose li{margin-bottom:10px;padding-left:4px}
+.prose li::marker{color:var(--ice)}
+.toc{padding:24px 28px;border-radius:20px;border:1px solid var(--line-strong);background:rgba(15,27,64,.55);margin-bottom:12px}
+.toc strong{display:block;font-family:var(--font-display);font-size:1.1rem;margin-bottom:12px;color:#fff}
+.toc ol{margin:0;font-size:.98rem}
+.toc a{border:0;color:var(--text)}
+.toc a:hover{color:var(--ice)}
+.callout{margin:34px 0;padding:26px 30px;border-radius:20px;border:1px solid var(--line-strong);background:linear-gradient(150deg,rgba(0,71,171,.35),rgba(26,44,91,.5));font-size:1.02rem;line-height:1.65;color:#E2ECF9}
+.callout.live{background:linear-gradient(150deg,rgba(79,227,168,.14),rgba(26,44,91,.4));border-color:rgba(79,227,168,.35)}
+.callout strong{color:#fff}
+.light .callout{background:#fff;border-color:#CDE4F6;color:var(--navy)}
+.light .callout strong{color:var(--navy)}
+.card.post{display:block}
+.card.post .tagline{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ice);margin-bottom:14px}
+.card.post h3{margin-bottom:12px}
+.card.post .link-arrow{margin-top:18px}
+.light .card.post .tagline{color:var(--royal)}
+.light .card.post h3{color:var(--navy)}
+.foot-grid{grid-template-columns:1.5fr 1fr 1.2fr 1fr 1.2fr;gap:36px}
+@media (max-width:1060px){.foot-grid{grid-template-columns:1fr 1fr}.sub.cols{width:auto}}
+@media (max-width:760px){.prose{font-size:1.02rem}.foot-grid{grid-template-columns:1fr}}

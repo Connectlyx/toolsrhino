@@ -1,0 +1,30 @@
+# ToolsRhino
+> ToolsRhino is the specialist sister company of Connectlyx. It builds AI automation, SaaS products and custom management systems for industries and businesses in the United States and worldwide.
+
+## Services
+- [Management Systems](https://www.toolsrhino.com/management-systems): custom portals for orders, stock, staff, payroll, payments and reports
+- [AI Automation](https://www.toolsrhino.com/ai-automation): AI assistants, WhatsApp and email workflows, document processing, smart reporting
+- [SaaS Product Creation](https://www.toolsrhino.com/saas-development): from idea to MVP to scale
+
+## Industries
+- [Rice Mill Management](https://www.toolsrhino.com/industries/rice-mill-management-software): Orders, staff and payroll, client tracking, deliveries, live reports and a bilingual AI assistant in one portal.
+- [Flour Mill Management](https://www.toolsrhino.com/industries/flour-mill-management-software): Production tracking, inventory, orders and accounts built around flour mill operations.
+- [Textile Mill Management](https://www.toolsrhino.com/industries/textile-mill-management-software): Production stages, staff and client order tracking for fabric and garment manufacturing.
+- [Poultry, Cattle & Dairy Farm Management](https://www.toolsrhino.com/industries/poultry-dairy-farm-management-software): Flock and herd records, feed tracking, health monitoring and sales management.
+- [Gym Management](https://www.toolsrhino.com/industries/gym-management-software): Member sign-ups, attendance, renewals and payment reminders, fully automated.
+- [Clinic Management](https://www.toolsrhino.com/industries/clinic-management-software): Patient records, appointment booking, billing and automated reminders for follow-ups.
+- [Café & Restaurant Management](https://www.toolsrhino.com/industries/restaurant-cafe-management-software): Orders, inventory, staff shifts and sales reporting for cafés and restaurants.
+
+## Insights
+- [What Is a Management System? A Business Owner's Guide](https://www.toolsrhino.com/insights/what-is-a-management-system): A management system is one secure portal for orders, stock, staff, payments and reports. Learn what it does, who needs one and how to choose.
+- [Excel vs Custom Management Software: When to Switch](https://www.toolsrhino.com/insights/excel-vs-custom-management-software): Excel is great until it isn't. Learn the real limits of spreadsheets, what custom management software costs you in time and how to make the move.
+- [AI Automation for Small Business: 8 Practical Examples](https://www.toolsrhino.com/insights/ai-automation-examples-for-small-business): Eight practical AI automation examples for small businesses, from payment reminders to invoice capture, with advice on where to start.
+- [Rice Mill Software: 9 Things to Check Before You Buy](https://www.toolsrhino.com/insights/rice-mill-software-buying-guide): Choosing rice mill management software? Use this checklist covering grades, by-products, ledgers, payroll, reports, language and support.
+- [How to Automate WhatsApp Payment Reminders](https://www.toolsrhino.com/insights/automate-whatsapp-payment-reminders): Learn how to automate WhatsApp payment reminders: opt-in, message templates, timing, tone and tracking, plus common mistakes to avoid.
+- [SaaS MVP Development: A Founder's Step-by-Step Guide](https://www.toolsrhino.com/insights/saas-mvp-development-guide): How to build a SaaS MVP: validate the problem, scope the smallest useful product, design, build, launch and learn, with common mistakes to avoid.
+
+## Contact
+- Email: info@connectlyx.com
+- Support: support@connectlyx.com
+- Phone / WhatsApp: +1 214 814 4539
+- Parent company: https://www.connectlyx.com

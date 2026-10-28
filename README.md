@@ -1,24 +1,26 @@
 # ToolsRhino website
 
-Static, multi-page website for **ToolsRhino**, the specialist sister company of Connectlyx
-(AI Automation · SaaS Product Creation · Management Systems).
+Static multi-page website for **ToolsRhino** (AI Automation · SaaS Product Creation · Management Systems), a specialist sister company of Connectlyx. Hosted on Vercel.
 
-## Pages
-`index.html` · `services.html` · `management-systems.html` · `ai-automation.html` · `saas-development.html` · `industries.html` · `about.html` · `contact.html` · `404.html`
-Plus `sitemap.xml`, `robots.txt` and `assets/` (css, js, images).
+## What is in here
+- 23 pages: Home, Services (+ Management Systems, AI Automation, SaaS), Industries (+ 7 industry pages), Insights (+ 6 articles), About, Contact, 404
+- `assets/` css, js, images · `sitemap.xml` · `robots.txt` · `llms.txt` · `vercel.json`
+- `build/` the generator (optional, see below)
 
-## Deploy
-Upload the whole folder to the repo root (replacing the old `index.html`). It is plain HTML/CSS/JS, so it works on GitHub Pages, Netlify, Vercel or any static host. No build step is needed to publish.
+## Deploy (Vercel)
+Commit everything to `main`. Vercel redeploys automatically. `vercel.json` turns on clean URLs (`/services` instead of `/services.html`), security headers and asset caching.
+
+## Local preview
+Links are root-absolute (`/assets/...`), so double-clicking `index.html` will not style correctly. Run a local server instead:
+`python3 -m http.server 8000` from this folder, then open http://localhost:8000 (some clean URLs only work on Vercel; the home page and .html paths work locally).
 
 ## Editing content
-Header, footer and all page copy are generated from `build/*.py` so the navigation stays identical everywhere.
-1. Edit the text in `build/home.py`, `build/services.py`, `build/rest.py` (or nav/footer in `build/lib.py`).
-2. Run `python3 build/build.py` to regenerate every `.html` file.
-Colours and fonts live at the top of `assets/css/style.css` (`:root`).
+Header, footer and all copy are generated from `build/*.py`:
+- `build/content_articles.py` – Insights articles
+- `build/content_industries.py` – industry pages
+- `build/home.py`, `services.py`, `rest.py` – core pages · `lib.py` – nav, footer, SEO tags
+Edit, then run `python3 build/build.py` to regenerate every page, the sitemap, llms.txt and vercel.json.
+To add an article: copy an entry in `content_articles.py`, change slug/title/text, rebuild, commit.
 
-## Things to know
-- Contact form uses the same Web3Forms key as the previous site (`assets/js/main.js`).
-- Contact details: info@connectlyx.com · support@connectlyx.com · +1 214 814 4539 · WhatsApp wa.me/12148144539.
-- Palette: #0047AB, #FFFFFF, #AFDBF5, #1A2C5B.
-- The animated "ink" background is WebGL with a CSS gradient fallback, and pauses off-screen / for reduced-motion users.
-- Canonical URLs and the sitemap assume `https://www.toolsrhino.com/`.
+## Contact form
+Web3Forms (key in `assets/js/main.js`). Contact details: info@connectlyx.com · support@connectlyx.com · +1 214 814 4539 · wa.me/12148144539.

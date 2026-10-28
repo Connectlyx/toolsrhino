@@ -113,8 +113,11 @@ def build():
   <div class="stat"><b>Days</b><span>From onboarding to go-live for most systems</span></div>
 </div></div></section>'''
 
+    SL = ["rice-mill-management-software", "flour-mill-management-software", "textile-mill-management-software", "poultry-dairy-farm-management-software",
+          "gym-management-software", "clinic-management-software", "restaurant-cafe-management-software"]
     def ind(ic, t, d, pill, kind, i):
-        return card(ic, t, d, f'<span class="pill {kind}">{pill}</span>', delay=i * .05)
+        lk = f'<p style="margin-top:14px"><a class="link-arrow" href="industries/{SL[i]}.html">Learn more {ARROW}</a></p>' if i < len(SL) else ""
+        return card(ic, t, d, f'<span class="pill {kind}">{pill}</span>' + lk, delay=i * .05)
     inds = f'''<section class="sec light"><div class="wrap">
   {head("Industries", "Built for the businesses that run on the ground.", "From mills and farms to clinics and cafés, the same intelligent foundation, adapted to how each industry actually works.")}
   <div class="grid g4">
@@ -165,12 +168,17 @@ def build():
       <p style="margin-top:22px;position:relative;z-index:1"><a class="btn btn-primary btn-sm" href="contact.html">Get my real number {ARROW}</a></p></div>
   </div></div></section>'''
 
+    from seo_pages import post_card, ART
+    teaser = f'''<section class="sec light"><div class="wrap">{head("From the Insights blog", "Practical reading for owners and founders.", "Plain-spoken guides on management systems, automation and building software products.")}
+  <div class="grid g3">{"".join(post_card(ART[s], n * .06) for n, s in enumerate(["what-is-a-management-system", "ai-automation-examples-for-small-business", "excel-vs-custom-management-software"]))}</div>
+  <p class="center reveal" style="margin-top:40px"><a class="btn btn-blue" href="insights.html">All insights {ARROW}</a></p></div></section>'''
+
     faq = f'''<section class="sec" style="padding-top:20px"><div class="wrap">
   {head("Questions, answered", "Things business owners ask us first.")}
   {faq_html(FAQ_HOME)}</div></section>'''
 
-    body = hero + marquee + lineage + tabs + stats + inds + steps + why + est + faq + cta_band()
+    body = hero + marquee + lineage + tabs + stats + inds + steps + why + est + teaser + faq + cta_band()
     return page("index.html",
-                "ToolsRhino | AI Automation & Custom Management Systems for Business",
-                "ToolsRhino, a Connectlyx company, builds AI automation, SaaS products and custom management systems for mills, clinics, gyms, restaurants and growing businesses.",
+                "AI Automation & Custom Management Systems | ToolsRhino",
+                "ToolsRhino, a Connectlyx company, builds AI automation, SaaS products and custom management systems for mills, clinics, gyms and growing businesses.",
                 body, label="Home", schemas=[faq_schema(FAQ_HOME)])
