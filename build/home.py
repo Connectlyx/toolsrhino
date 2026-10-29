@@ -51,7 +51,7 @@ def build():
   <div class="wrap">
     <div class="hero-inner">
       <div class="lineage reveal"><a class="parent" href="{PARENT}" target="_blank" rel="noopener">Connectlyx</a>{ARROW_LONG}<span class="child"><img src="assets/img/logo-navy.png" alt="">ToolsRhino</span></div>
-      <div><a class="home-badge reveal" href="gym-command-center.html"><b>NEW</b> Gym Command Center: early access planned {ARROW}</a></div>
+      <div><a class="home-badge reveal" href="gym-command-center.html"><b>NEW</b> Gym Command Center: early access planned {ARROW.replace("<svg ", "<svg width=\"14\" height=\"14\" ")}</a></div>
       <h1 class="h1 reveal" style="--d:.08s">Management systems and AI automation that work as hard as you do.</h1>
       <p class="lead reveal" style="--d:.16s">ToolsRhino is the specialist arm of Connectlyx for AI automation, SaaS product creation and custom management systems. We replace scattered spreadsheets, paper registers and endless WhatsApp threads with one secure portal your whole team can actually use.</p>
       <div class="cta-row reveal" style="--d:.24s"><a class="btn btn-primary" href="services.html">Explore our services {ARROW}</a><a class="btn btn-ghost" href="{WA_DEMO}" target="_blank" rel="noopener">Book a demo</a></div>

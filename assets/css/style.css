@@ -678,3 +678,4 @@ html:not(.js) .panel.shot{display:block;margin-bottom:30px}
 .light .loop .st small{color:#52628f}
 .light .loop .st::after{color:#0047AB}
 .g-tl>div>div{display:block;line-height:1.35}.g-tl>div>div:last-child{white-space:nowrap}
+.home-badge svg{width:14px;height:14px;flex:none}
