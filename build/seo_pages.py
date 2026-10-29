@@ -22,10 +22,16 @@ def post_card(a, delay=0):
 def industry_page(i):
     slug = f"industries/{i['slug']}.html"
     live = i["status"] == "live"
-    pill = '<span class="pill live">Live &amp; available</span>' if live else '<span class="pill dev">In development</span>'
+    pill = '<span class="pill live">Live &amp; available</span>' if live else ('<span class="pill dev">Early access planned</span>' if i.get("product") else '<span class="pill dev">In development</span>')
     hero = page_hero(strip_tags(i["name"]), i["h1"], i["lead"], trail=[("Industries", "industries.html")])
-    callout = (f'<div class="callout live reveal"><strong>Live and available.</strong> This system is running today. Book a demo and we will walk you through it with data from your own sector.</div>'
-               if live else f'<div class="callout reveal"><strong>In development.</strong> {DEV_NOTE}</div>')
+    prod = i.get("product")
+    if prod:
+        callout = (f'<div class="callout reveal"><strong>Early access planned.</strong> This sector is served by our product Gym Command Center, now in its final development and production-readiness phase. '
+                   f'<p style="margin-top:16px"><a class="btn btn-blue btn-sm" href="{prod[0]}">{prod[1]} {ARROW}</a></p></div>')
+    elif live:
+        callout = '<div class="callout live reveal"><strong>Live and available.</strong> This system is running today.</div>'
+    else:
+        callout = f'<div class="callout reveal"><strong>In development.</strong> {DEV_NOTE}</div>'
     pains = '<ul class="ticks">' + "".join(f"<li>{p}</li>" for p in i["pains"]) + "</ul>"
     problem = f'''<section class="sec"><div class="wrap"><div class="split top">
   <div class="reveal"><span class="eyebrow">The challenge</span><h2 class="h2">Where the day-to-day usually leaks time and money.</h2>
@@ -34,9 +40,9 @@ def industry_page(i):
 </div></div></section>'''
     mods = '<div class="grid g4">' + "".join(card(ic, t, d, delay=(n % 4) * .05) for n, (ic, t, d) in enumerate(i["modules"])) + "</div>"
     modules = f'<section class="sec light"><div class="wrap">{head("What it covers", f"Everything a {strip_tags(i["name"]).lower()} operation needs.", "Each module is configured around your own workflow, so the portal feels familiar from day one.")}{mods}{callout}</div></section>'
-    how = f'''<section class="sec"><div class="wrap">{head("Getting started", "Live in days, not months.")}
+    how = f'''<section class="sec"><div class="wrap">{head("Getting started", "A clear path from first call to go-live.")}
   <div class="steps">
-    <div class="step reveal"><div class="n">01</div><h3>Talk and demo</h3><p>Tell us how you run today. We show you a live system and note what is different about your business.</p></div>
+    <div class="step reveal"><div class="n">01</div><h3>Talk and demo</h3><p>Tell us how you run today. We show you how the system would work and note what is different about your business.</p></div>
     <div class="step reveal" style="--d:.08s"><div class="n">02</div><h3>Configure</h3><p>We shape modules, fields, roles and reports around your process and import your existing records.</p></div>
     <div class="step reveal" style="--d:.16s"><div class="n">03</div><h3>Train</h3><p>Your team learns on their own data, with us alongside, in English or Urdu.</p></div>
     <div class="step reveal" style="--d:.24s"><div class="n">04</div><h3>Go live and grow</h3><p>We keep supporting, refining and adding automation as your needs change.</p></div>

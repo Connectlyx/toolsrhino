@@ -4,11 +4,11 @@ _SLUG = {i['name'].replace('&amp;','&').split(' Management')[0].lower(): i['slug
 
 def industries():
     L = [
-        ("wheat", "Rice Mill Management", "Orders, staff and payroll, client tracking, deliveries, live reports and a bilingual AI assistant in one portal.", "Live &amp; available", "live"),
+        ("wheat", "Rice Mill Management", "Orders, staff and payroll, client tracking, deliveries, live reports and a bilingual AI assistant in one portal.", "In development", "dev"),
         ("wheat", "Flour Mill Management", "Production tracking, inventory, orders and accounts built around flour mill operations.", "In development", "dev"),
         ("shirt", "Textile Mill Management", "Production stages, staff and client order tracking for fabric and garment manufacturing.", "In development", "dev"),
         ("barn", "Poultry, Cattle &amp; Dairy Farms", "Flock and herd records, feed tracking, health monitoring and sales management.", "In development", "dev"),
-        ("dumbbell", "Gym Management", "Member sign-ups, attendance, membership renewals and payment reminders, fully automated.", "In development", "dev"),
+        ("dumbbell", "Gym Command Center", "Members, memberships, invoices, payments, attendance and leads in one dashboard for gym owners.", "Early access planned", "dev"),
         ("clinic", "Clinic Management", "Patient records, appointment booking, billing and automated follow-up reminders.", "In development", "dev"),
         ("coffee", "Café &amp; Restaurant Management", "Orders, inventory, staff shifts and sales reporting for cafés and restaurants.", "In development", "dev"),
         ("pill", "Pharmacy &amp; Medical Store", "Batch and expiry tracking, supplier orders, prescriptions and sales reporting.", "Custom build", "custom"),
@@ -22,6 +22,8 @@ def industries():
     ]
     def _lk(t):
         key = t.replace('&amp;','&').split(' Management')[0].lower()
+        if t.startswith("Gym"):
+            return f'<p style="margin-top:14px"><a class="link-arrow" href="gym-command-center.html">Meet Gym Command Center {ARROW}</a></p>'
         for k, v in _SLUG.items():
             if key.startswith(k.split(',')[0]) or k.startswith(key.split(',')[0]):
                 return f'<p style="margin-top:14px"><a class="link-arrow" href="industries/{v}.html">Learn more {ARROW}</a></p>'
@@ -30,7 +32,7 @@ def industries():
     hero = page_hero("Industries", "Systems shaped around your industry.",
         "Every sector has its own rhythm, vocabulary and bottlenecks. Our management systems and automations are built to respect that, from the first screen to the last report.")
     body = hero + f'''<section class="sec"><div class="wrap">
-  {head("Industry solutions", "Live today, in development and built to order.", "Our rice mill management system is live. Others are in development, and anything else can be built to order, using the same secure foundation.")}
+  {head("Industry solutions", "Built around your industry, and built to order.", "Our industry systems are in development, and anything not listed can be built to order, using the same secure foundation.")}
   <div class="grid g3">{cards}</div></div></section>
   <section class="sec light"><div class="wrap"><div class="split">
     <div class="reveal"><span class="eyebrow">Not listed?</span><h2 class="h2">If your business has a process, we can systemise it.</h2>
@@ -102,13 +104,13 @@ def contact():
     <h2 class="h3" style="font-size:1.7rem;margin-bottom:24px">Send us a message</h2>
     <div class="two"><div class="f"><label for="n">Your name</label><input id="n" name="name" type="text" placeholder="John Smith" required autocomplete="name"></div>
       <div class="f"><label for="e">Email address</label><input id="e" name="email" type="email" placeholder="you@company.com" required autocomplete="email"></div></div>
-    <div class="f"><label for="s">What do you need?</label><select id="s" name="service"><option>Management system</option><option>AI automation</option><option>SaaS product creation</option><option>Not sure yet</option></select></div>
+    <div class="f"><label for="s">What do you need?</label><select id="s" name="service"><option>Management system</option><option value="gym-command-center">Gym Command Center (early access)</option><option>AI automation</option><option>SaaS product creation</option><option>Not sure yet</option></select></div>
     <div class="f"><label for="m">Message</label><textarea id="m" name="message" placeholder="Tell us about your business and what you're looking for…" required></textarea></div>
     <input class="hp" type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
     <button class="btn btn-blue" type="submit">Send message {ARROW}</button>
     <div class="form-note" id="formStatus" role="status">We typically reply within 24 hours.</div>
   </form>
-</div></div></section>''' + cta_band("Prefer to see it first?", "Book a live demo on WhatsApp and we'll walk you through a system built for your industry.")
+</div></div></section>''' + cta_band("Prefer to see it first?", "Book a demo on WhatsApp and we'll talk you through how a system would work for your industry.")
     return page("contact.html", "Contact ToolsRhino | Book a Demo",
                 "Contact ToolsRhino to book a demo. Email info@connectlyx.com, call +1 214 814 4539 or message us on WhatsApp. Serving businesses in the US and worldwide.",
                 body, label="Contact")

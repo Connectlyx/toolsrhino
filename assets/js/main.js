@@ -153,6 +153,9 @@
     });
   }
 
+  var qi = (new URLSearchParams(location.search)).get('interest'), sel = doc.getElementById('s');
+  if (qi && sel) { [].forEach.call(sel.options, function (o) { if (o.value === qi) sel.value = qi; }); }
+
   var y = doc.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
 
   /* ---------- living ink (WebGL fluid background) ---------- */

@@ -73,6 +73,7 @@ from content_articles import ARTICLES
 NAV = [
     ("index.html", "Home", None, None),
     ("services.html", "Services", [
+        ("gym-command-center.html", "dumbbell", "Gym Command Center", "Our gym management SaaS, early access planned"),
         ("management-systems.html", "layers", "Management Systems", "Custom portals for industries and businesses"),
         ("ai-automation.html", "bot", "AI Automation", "Assistants, workflows and smart reporting"),
         ("saas-development.html", "rocket", "SaaS Product Creation", "From idea to a scalable subscription product"),
@@ -136,6 +137,7 @@ def footer():
         <li><a href="management-systems.html">Management Systems</a></li>
         <li><a href="ai-automation.html">AI Automation</a></li>
         <li><a href="saas-development.html">SaaS Product Creation</a></li>
+        <li><a href="gym-command-center.html">Gym Command Center</a></li>
         <li><a href="services.html">All Services</a></li></ul></div>
       <div><h4>Industries</h4><ul>{ind}<li><a href="industries.html">All industries</a></li></ul></div>
       <div><h4>Company</h4><ul>
@@ -272,7 +274,7 @@ def page_hero(label, h1, lead, ctas=True, slug_label=None, h1_html=None, trail=(
 </section>'''
 
 
-def cta_band(h="Let's put your operations on autopilot.", p="Tell us how your business runs today. We'll show you, in a live demo, how it could run tomorrow."):
+def cta_band(h="Let's put your operations on autopilot.", p="Tell us how your business runs today. We'll show you how it could run tomorrow."):
     return f'''<section class="sec" style="padding-top:40px"><div class="wrap"><div class="cta reveal">
   <canvas class="ink" aria-hidden="true"></canvas>
   <h2 class="h2">{h}</h2><p class="lead">{p}</p>

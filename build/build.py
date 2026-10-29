@@ -2,16 +2,16 @@
 Edit content in build/*.py, then re-run to regenerate every .html file with consistent header, footer and links."""
 import os, sys, re, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import home, services, rest, seo_pages
+import home, services, rest, seo_pages, gcc
 from lib import SITE
 from content_industries import INDUSTRIES
 from content_articles import ARTICLES
 
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "site")
 pages = {
     "index.html": home.build(), "services.html": services.services(), "management-systems.html": services.management(),
     "ai-automation.html": services.ai(), "saas-development.html": services.saas(), "industries.html": rest.industries(),
-    "about.html": rest.about(), "contact.html": rest.contact(), "insights.html": seo_pages.insights_index(), "404.html": rest.notfound(),
+    "about.html": rest.about(), "contact.html": rest.contact(), "insights.html": seo_pages.insights_index(), "gym-command-center.html": gcc.page_html(), "404.html": rest.notfound(),
 }
 for i in INDUSTRIES:
     pages[f"industries/{i['slug']}.html"] = seo_pages.industry_page(i)
@@ -27,7 +27,7 @@ for name, html in pages.items():
 
 today = "2026-10-28"
 pri = {"index.html": "1.0", "services.html": "0.9", "management-systems.html": "0.9", "ai-automation.html": "0.9", "saas-development.html": "0.8",
-       "industries.html": "0.8", "insights.html": "0.7"}
+       "industries.html": "0.8", "insights.html": "0.7", "gym-command-center.html": "0.9"}
 urls = [n for n in pages if n != "404.html"]
 def loc(n):
     return SITE + "/" + ("" if n == "index.html" else n[:-5])
@@ -45,6 +45,7 @@ llms = f"""# ToolsRhino
 - [Management Systems]({SITE}/management-systems): custom portals for orders, stock, staff, payroll, payments and reports
 - [AI Automation]({SITE}/ai-automation): AI assistants, WhatsApp and email workflows, document processing, smart reporting
 - [SaaS Product Creation]({SITE}/saas-development): from idea to MVP to scale
+- [Gym Command Center]({SITE}/gym-command-center): gym management software for members, billing, attendance and leads (early access planned)
 
 ## Industries
 """ + "".join(f"- [{re.sub('&amp;','&',i['name'])}]({SITE}/industries/{i['slug']}): {i['short']}\n" for i in INDUSTRIES) + f"""

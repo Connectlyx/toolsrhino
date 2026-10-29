@@ -5,13 +5,14 @@
 - [Management Systems](https://www.toolsrhino.com/management-systems): custom portals for orders, stock, staff, payroll, payments and reports
 - [AI Automation](https://www.toolsrhino.com/ai-automation): AI assistants, WhatsApp and email workflows, document processing, smart reporting
 - [SaaS Product Creation](https://www.toolsrhino.com/saas-development): from idea to MVP to scale
+- [Gym Command Center](https://www.toolsrhino.com/gym-command-center): gym management software for members, billing, attendance and leads (early access planned)
 
 ## Industries
 - [Rice Mill Management](https://www.toolsrhino.com/industries/rice-mill-management-software): Orders, staff and payroll, client tracking, deliveries, live reports and a bilingual AI assistant in one portal.
 - [Flour Mill Management](https://www.toolsrhino.com/industries/flour-mill-management-software): Production tracking, inventory, orders and accounts built around flour mill operations.
 - [Textile Mill Management](https://www.toolsrhino.com/industries/textile-mill-management-software): Production stages, staff and client order tracking for fabric and garment manufacturing.
 - [Poultry, Cattle & Dairy Farm Management](https://www.toolsrhino.com/industries/poultry-dairy-farm-management-software): Flock and herd records, feed tracking, health monitoring and sales management.
-- [Gym Management](https://www.toolsrhino.com/industries/gym-management-software): Member sign-ups, attendance, renewals and payment reminders, fully automated.
+- [Gym Management](https://www.toolsrhino.com/industries/gym-management-software): Members, memberships, invoices, payments, attendance and leads in one dashboard for gym owners.
 - [Clinic Management](https://www.toolsrhino.com/industries/clinic-management-software): Patient records, appointment booking, billing and automated reminders for follow-ups.
 - [Café & Restaurant Management](https://www.toolsrhino.com/industries/restaurant-cafe-management-software): Orders, inventory, staff shifts and sales reporting for cafés and restaurants.
 
@@ -22,6 +23,10 @@
 - [Rice Mill Software: 9 Things to Check Before You Buy](https://www.toolsrhino.com/insights/rice-mill-software-buying-guide): Choosing rice mill management software? Use this checklist covering grades, by-products, ledgers, payroll, reports, language and support.
 - [How to Automate WhatsApp Payment Reminders](https://www.toolsrhino.com/insights/automate-whatsapp-payment-reminders): Learn how to automate WhatsApp payment reminders: opt-in, message templates, timing, tone and tracking, plus common mistakes to avoid.
 - [SaaS MVP Development: A Founder's Step-by-Step Guide](https://www.toolsrhino.com/insights/saas-mvp-development-guide): How to build a SaaS MVP: validate the problem, scope the smallest useful product, design, build, launch and learn, with common mistakes to avoid.
+- [Payroll for Daily-Wage Staff: How to Automate It](https://www.toolsrhino.com/insights/payroll-for-daily-wage-staff-guide): Paying daily-wage or piece-rate workers? Learn how attendance, overtime and advances can flow into payroll automatically, and the mistakes to avoid.
+- [WhatsApp Automation for Gyms: 7 Messages to Automate](https://www.toolsrhino.com/insights/whatsapp-automation-for-gyms): Seven WhatsApp messages every gym should automate, from welcome and renewal reminders to win-back nudges, with timing and wording tips.
+- [Gym Management Software: 10 Questions to Ask Before You Choose](https://www.toolsrhino.com/insights/gym-management-software-buying-guide): Choosing gym management software? Ten practical questions on billing, renewals, attendance, leads, staff access, data and support.
+- [How to Reduce Overdue Gym Payments and Missed Renewals](https://www.toolsrhino.com/insights/gym-membership-renewals-overdue-payments): Practical steps to cut overdue payments and missed renewals at your gym: clear invoices, timely reminders, follow-up routines and the right dashboard.
 
 ## Contact
 - Email: info@connectlyx.com

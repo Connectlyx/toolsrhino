@@ -30,7 +30,7 @@ ARTICLES = [
      "If three or more of those feel familiar, we explain the trade-offs in more detail in <a href=\"/insights/excel-vs-custom-management-software\">Excel vs custom management software</a>."]),
    ("How is it different from ERP software?", [
      "ERP (enterprise resource planning) systems cover the same ground, but they are built for large organisations. They tend to be expensive, slow to configure and heavy to learn, and they often include far more than a smaller business will ever use.",
-     "A tailored management system takes the opposite approach. It starts from how your business already works, includes only the modules you need and can be live in days rather than months. As you grow, you add to it."]),
+     "A tailored management system takes the opposite approach. It starts from how your business already works, includes only the modules you need and can be set up far faster than a traditional ERP rollout. As you grow, you add to it."]),
    ("What makes a good management system", [
      ("ol", ["<strong>It matches your workflow.</strong> The software should follow your process, not force you into someone else’s.",
              "<strong>Your team will actually use it.</strong> If staff need a long course, adoption will fail. Simple screens and a short walkthrough matter more than features.",
@@ -40,7 +40,7 @@ ARTICLES = [
    ("Where AI fits in", [
      "Once your data lives in one place, automation becomes practical. An AI assistant can answer questions from your own records, send payment reminders and compile weekly summaries. It is much harder to do that on top of scattered files. This is why we usually recommend getting the foundation right first, then adding <a href=\"/ai-automation\">AI automation</a>."]),
   ],
-  faq=[("How long does it take to set up a management system?", "A focused system can be configured within days. Larger, multi-branch or heavily customised builds take longer, and we agree the timeline before work starts."),
+  faq=[("How long does it take to set up a management system?", "A focused system is configured far faster than a traditional ERP rollout. Larger, multi-branch or heavily customised builds take longer, and we agree the timeline before work starts."),
        ("Do I need technical skills to use one?", "No. A good management system is designed for business owners and floor staff, and training is part of onboarding."),
        ("Can it replace my Excel sheets?", "Yes. Existing spreadsheets are imported, and you can still export data to Excel whenever you need it.")],
   related=["excel-vs-custom-management-software", "ai-automation-examples-for-small-business"],
@@ -147,11 +147,11 @@ ARTICLES = [
    ("9. What happens after you go live?", [
      "Training, support and updates matter as much as the software. Ask how quickly questions are answered, how new requirements are handled and what the vendor does when something breaks."]),
    ("A quick scorecard", [
-     "Give each of the nine questions a score from 0 to 2 for every option you evaluate. Anything below 12 out of 18 deserves a hard second look. Our own <a href=\"/industries/rice-mill-management-software\">rice mill management system</a> is live, and we are happy to walk you through it on a call and answer every question on this list."]),
+     "Give each of the nine questions a score from 0 to 2 for every option you evaluate. Anything below 12 out of 18 deserves a hard second look. Our own <a href=\"/industries/rice-mill-management-software\">rice mill management system</a> is in development, and we are happy to talk through how it handles each point on this list."]),
   ],
   faq=[("What is the difference between rice mill billing software and management software?", "Billing software records sales and invoices. Management software also tracks stock, payroll, deliveries and reports, giving you one picture of the whole mill."),
        ("Can rice mill software work on a phone?", "Modern systems are web-based and responsive, so owners can check figures from a phone and staff can record entries on site."),
-       ("How long does implementation take?", "With a focused setup, most mills are ready within days, depending on how much existing data has to be imported.")],
+       ("How long does implementation take?", "Timelines depend on scope and how much existing data has to be imported. A focused setup is much quicker than a traditional ERP rollout, and we agree the timeline before work starts.")],
   related=["excel-vs-custom-management-software", "what-is-a-management-system"],
   link=("/industries/rice-mill-management-software", "See the rice mill management system")),
 
@@ -234,4 +234,164 @@ ARTICLES = [
        ("Do I need a technical co-founder?", "Not necessarily. Many founders work with a development partner, as long as ownership terms and the product vision are clear from the start.")],
   related=["what-is-a-management-system", "ai-automation-examples-for-small-business"],
   link=("/saas-development", "Plan your SaaS product with us")),
+]
+
+
+ARTICLES += [
+ dict(slug="payroll-for-daily-wage-staff-guide",
+  title="Payroll for Daily-Wage Staff: How to Automate It",
+  h1="Payroll for daily-wage and piece-rate staff: how to stop calculating it by hand",
+  desc="Paying daily-wage or piece-rate workers? Learn how attendance, overtime and advances can flow into payroll automatically, and the mistakes to avoid.",
+  read=7, tag="Management Systems",
+  intro="Monthly salaries are easy. Daily wages, overtime, advances, piece rates and a workforce that changes week to week are not. If payroll day in your mill, factory or workshop means two people, a calculator and a lot of arguing, this guide is for you.",
+  sections=[
+   ("Why daily-wage payroll goes wrong", [
+     "The difficulty is not the arithmetic. It is that the inputs are scattered. Attendance sits in a register at the gate, overtime in a supervisor’s notebook, advances in the owner’s memory and output counts on a separate sheet. By month-end, someone has to reconcile all of it, and each person remembers events slightly differently.",
+     "The result is familiar: late payments, disputed amounts and a few hours of every payroll cycle spent settling arguments rather than paying people."]),
+   ("The five inputs that decide every pay slip", [
+     ("ol", ["<strong>Attendance:</strong> who worked, which days, and for how long.",
+             "<strong>Rate:</strong> the daily, hourly or piece rate that applies to each person and role.",
+             "<strong>Overtime:</strong> hours beyond the normal shift, and the multiplier that applies.",
+             "<strong>Advances and deductions:</strong> money already paid, loans, fines or recoveries.",
+             "<strong>Output:</strong> for piece-rate work, the count or weight completed."]),
+     "If any one of these is recorded late or inconsistently, the final number will be wrong. Reliable payroll is mostly a record-keeping problem."]),
+   ("Step 1: Record attendance at the source", [
+     "Attendance should be captured when it happens, not reconstructed later. A supervisor marking a phone or tablet at the start of the shift is enough. The aim is a single digital record per person per day, with a timestamp and the name of whoever entered it."]),
+   ("Step 2: Define pay rules once", [
+     "Write down how each role is paid: daily rate, hourly rate, piece rate, or a mix. Set the overtime rule and the cut-off for late arrival or half-days. Once those rules live in the system, they apply to everyone the same way, which removes a surprising amount of friction."]),
+   ("Step 3: Handle advances properly", [
+     "Advances are where trust is most easily damaged. Record each one when it is given, with the date and amount, and let the system deduct it at the agreed pace. When a worker asks “how much do I still owe?”, you can show the answer in seconds."]),
+   ("Step 4: Link output to pay for piece-rate work", [
+     "If workers are paid per bag, per metre or per unit, record output against each person as it is produced. Payroll then multiplies by the rate automatically. This also gives you productivity data you never had before."]),
+   ("Step 5: Review before you pay", [
+     "A good system produces a draft payroll that a manager approves, rather than paying blindly. Flag the unusual: someone with no attendance but a payment, overtime far above the norm, or a negative balance after deductions. Approval takes minutes when the draft is accurate."]),
+   ("What changes when payroll is automated", [
+     ("ul", ["Payroll takes minutes to prepare instead of days.",
+             "Disputes fall because every figure can be traced to an attendance entry.",
+             "Workers receive clear, itemised pay statements.",
+             "Owners see labour cost by day, team or product, in real time.",
+             "Month-end stops being a crisis."]),
+     "Our <a href=\"/industries/rice-mill-management-software\">rice mill management system</a> includes staff, attendance and payroll for exactly this reason, and the same approach works for other plants and workshops. You can read about the wider approach in <a href=\"/insights/what-is-a-management-system\">what a management system is</a>."]),
+   ("Mistakes to avoid", [
+     ("ul", ["Entering attendance at the end of the week from memory.",
+             "Keeping advances in a separate notebook from payroll.",
+             "Changing pay rules informally without updating the record.",
+             "Paying without a review step.",
+             "Ignoring local labour rules on overtime, leave and records. These vary by country, so check yours."])]),
+  ],
+  faq=[("Can payroll handle both daily-wage and monthly-salary staff?", "Yes. Each person can have their own pay type, and the same payroll run calculates all of them."),
+       ("How are advances deducted?", "Advances are recorded when they are paid and can be recovered in full or in instalments, so every pay statement shows what has been taken and what remains."),
+       ("Does the system follow local labour regulations?", "Pay rules are configurable, so overtime, leave and deductions can be set to match your requirements. You remain responsible for confirming that those rules meet your local law.")],
+  related=["what-is-a-management-system", "rice-mill-software-buying-guide"],
+  link=("/industries/rice-mill-management-software", "See staff and payroll in the rice mill system")),
+
+ dict(slug="whatsapp-automation-for-gyms",
+  title="WhatsApp Automation for Gyms: 7 Messages to Automate",
+  h1="WhatsApp automation for gyms: seven messages worth automating",
+  desc="Seven WhatsApp messages every gym should automate, from welcome and renewal reminders to win-back nudges, with timing and wording tips.",
+  read=6, tag="AI Automation",
+  intro="Most gyms do not lose members dramatically. They lose them quietly, through a renewal nobody chased, an enquiry nobody answered or a member who simply stopped coming. WhatsApp is where your members already are, which makes it the best place to fix all three.",
+  sections=[
+   ("Why WhatsApp suits gyms", [
+     "A gym relationship runs on small, regular touchpoints: a welcome, a schedule change, a renewal, a nudge. Email is often ignored and calls interrupt. A short WhatsApp message is read quickly and takes seconds to answer. Automation means those touchpoints happen every time, on time, without front-desk effort."]),
+   ("Before you start: permission and templates", [
+     "Only message people who have agreed to hear from you, and record that consent at sign-up. Business-initiated messages through the WhatsApp Business Platform generally use pre-approved templates, so plan your wording in advance. For a deeper look at the setup, read our guide to <a href=\"/insights/automate-whatsapp-payment-reminders\">automating WhatsApp payment reminders</a>."]),
+   ("1. The welcome message", [
+     "Send it within minutes of joining. Confirm the plan and start date, share opening hours and tell the member who to contact. It sets a professional tone and answers the questions new members always have."]),
+   ("2. The first-week check-in", [
+     "Members who build a habit in the first two weeks are far more likely to stay. A friendly message after the first visit, or after a week with no visit, offering a free orientation or a class suggestion, keeps the momentum going."]),
+   ("3. Class and booking reminders", [
+     "A reminder the evening before, or a few hours ahead, reduces no-shows and empty spots. Include the time, the trainer and an easy way to cancel so that someone else can take the place."]),
+   ("4. Renewal reminders", [
+     "This is the most valuable automation in the building. Send a first reminder about a week before expiry, a second two or three days before and a final one on the day. Include the plan, the amount and how to pay. Many renewals are lost simply because nobody asked."]),
+   ("5. Payment confirmations and receipts", [
+     "Confirm every payment immediately. It reassures the member and prevents disputes, and it gives you a clear record without extra work."]),
+   ("6. The “we miss you” nudge", [
+     "When a member has not visited for ten to fourteen days, send a warm, low-pressure message: no guilt, just an invitation back, perhaps with a class suggestion. Inactive members are your most recoverable revenue."]),
+   ("7. Announcements and schedule changes", [
+     "Holiday hours, new classes, a trainer change or an equipment upgrade can all go to the right group of members in one go, instead of a notice board that half your members never read."]),
+   ("Tone and timing", [
+     ("ul", ["Keep messages short and human. One idea per message.",
+             "Use the member’s first name.",
+             "Avoid early mornings and late nights.",
+             "Always make it easy to reply or opt out.",
+             "Let a person take over when a conversation becomes personal or sensitive."]),
+     "These messages work best when they are driven by live data: expiry dates, attendance and payments. That is the direction for <a href=\"/gym-command-center\">Gym Command Center</a>, our gym management platform, which is in its final development phase. At launch its payment reminders are designed to go out by email, and WhatsApp messaging is on the roadmap. You can read more about our approach in <a href=\"/ai-automation\">AI automation services</a>."]),
+  ],
+  faq=[("Is it allowed to send automated WhatsApp messages to gym members?", "Yes, provided members have opted in and you use approved templates through the WhatsApp Business Platform. Rules can change, so check the current WhatsApp policies."),
+       ("How many messages is too many?", "Most gyms do well with a handful per member per month: welcome, renewal reminders, the occasional announcement and a win-back nudge when needed. Quality and timing matter more than frequency."),
+       ("Can I automate this without a management system?", "Partly. Simple broadcasts are possible, but reminders driven by expiry dates, attendance and payments need your member data connected, which is where a management system such as Gym Command Center is designed to help.")],
+  related=["automate-whatsapp-payment-reminders", "ai-automation-examples-for-small-business"],
+  link=("/gym-command-center", "Explore Gym Command Center")),
+]
+
+
+ARTICLES += [
+ dict(slug="gym-management-software-buying-guide",
+  title="Gym Management Software: 10 Questions to Ask Before You Choose",
+  h1="Gym management software: ten questions to ask before you choose",
+  desc="Choosing gym management software? Ten practical questions on billing, renewals, attendance, leads, staff access, data and support.",
+  read=8, tag="Industry Guides",
+  intro="Gym software ranges from simple check-in tools to full management platforms. The right choice depends on how your gym actually earns and loses money. These ten questions will help you compare options calmly, whichever product you end up choosing.",
+  sections=[
+   ("1. What problem are you really solving?", [
+     "Write it down before you look at a single demo. Is it chasing payments? Losing members at renewal? Not knowing your monthly revenue? A gym that loses money to unpaid balances needs strong invoicing. A gym that loses members needs good follow-up. Software that fits one problem well beats software that does everything adequately."]),
+   ("2. How does it handle billing and balances?", [
+     "Look for invoices that link to a member and a plan, payments that can be recorded in part or in full, and balances that update the moment a payment is entered. Ask what happens when someone pays late, pays twice or changes plans mid-month. Real life is messy, and billing is where mess becomes lost revenue."]),
+   ("3. How are renewals and expiries surfaced?", [
+     "The best systems do not wait for you to search. They show which memberships expire in the next week, and which invoices are overdue, the moment you open the dashboard. If you have to build a filter every morning, you will eventually stop doing it."]),
+   ("4. What reminders can it send, and through which channels?", [
+     "Check how many reminders you can configure, how they are timed and whether they stop automatically once an invoice is paid. Then ask which channels are supported today, not just planned. Email is common; WhatsApp is valuable in many markets but requires a proper business integration."]),
+   ("5. Can it track leads, not just members?", [
+     "Many gyms lose potential members before they ever join. A simple lead pipeline, with a stage and a next step for each enquiry, can be worth more than another reporting screen."]),
+   ("6. How good is attendance tracking?", [
+     "At minimum, you want a quick check-in and a history by member. Ask whether it helps you spot members who have stopped coming. If you rely on turnstiles or biometric devices, check specifically which models are supported, rather than accepting a general claim."]),
+   ("7. Who can see and change what?", [
+     "A receptionist, a trainer and an accountant should not all see the same things. Look for defined staff roles and ask how permissions are enforced. This matters most for financial records."]),
+   ("8. Is your data kept separate and secure?", [
+     "Software-as-a-service products serve many gyms at once, so ask how one customer’s data is separated from another’s, where it is hosted and how backups work. Ask for plain answers, not buzzwords."]),
+   ("9. Does it match your currency, timezone and market?", [
+     "Gyms in different countries invoice in different currencies and operate in different time zones. Make sure the system can be configured for yours, and ask what happens if you open a second location in another country."]),
+   ("10. What happens after you sign up?", [
+     "Ask about onboarding, data import, training and support. A system your team does not understand will not be used. Find out who sets it up, how long that takes and who you call when something goes wrong."]),
+   ("Where Gym Command Center fits", [
+     "We are building <a href=\"/gym-command-center\">Gym Command Center</a> around these questions: one dashboard for members, memberships, invoices, payments, attendance and leads, with an Attention Required view that shows what needs action first. It is in its final development phase, with early access planned, and we are happy to talk through how it answers each point above. You can also read about <a href=\"/industries/gym-management-software\">our approach to gym management software</a>."]),
+  ],
+  faq=[("What features should gym management software have?", "At a minimum: member and membership management, invoicing and payment tracking, attendance, lead management, reports and staff access controls. Reminders and a dashboard that highlights what needs attention are the features that most often save revenue."),
+       ("Is cloud-based gym software safe?", "It can be, provided data is separated between customers, access is controlled by role and the provider is transparent about hosting and backups. Ask direct questions and expect direct answers."),
+       ("Should a small gym use spreadsheets or software?", "Spreadsheets work for very small gyms, but once you have recurring payments, renewals and several staff, dedicated software saves time and prevents lost revenue.")],
+  related=["gym-membership-renewals-overdue-payments", "excel-vs-custom-management-software"],
+  link=("/gym-command-center", "Explore Gym Command Center")),
+
+ dict(slug="gym-membership-renewals-overdue-payments",
+  title="How to Reduce Overdue Gym Payments and Missed Renewals",
+  h1="How to reduce overdue gym payments and missed renewals",
+  desc="Practical steps to cut overdue payments and missed renewals at your gym: clear invoices, timely reminders, follow-up routines and the right dashboard.",
+  read=7, tag="Management Systems",
+  intro="Overdue payments and quiet non-renewals are the two leaks that cost gyms the most, and both are largely fixable with routine rather than heroics. Here is a practical approach that works whether you use software or a well-kept register.",
+  sections=[
+   ("Why gyms leak revenue", [
+     "It is rarely dishonesty or neglect. It is that nobody owns the follow-up. The front desk is busy, the owner assumes someone else is chasing and the information sits in a notebook. By the time anyone notices, the member has drifted away or the balance has grown awkward to raise."]),
+   ("Step 1: Make every charge visible", [
+     "Every member should have an invoice for what they owe, linked to their plan. Verbal arrangements and handwritten notes cannot be reported on. A clear invoice also gives you something to point to, which makes conversations easier and fairer."]),
+   ("Step 2: Record payments the same day", [
+     "Payments should be logged when they happen, in part or in full, with the method. When a balance is always current, you can see exactly who owes what without a month-end reconciliation."]),
+   ("Step 3: Set a reminder rhythm", [
+     "A simple pattern works well: one reminder shortly before the due date and one on or after it. Keep the tone polite and include the amount and how to pay. Reminders should stop as soon as the invoice is settled, so nobody is nagged for money they have already paid."]),
+   ("Step 4: Review the overdue list daily", [
+     "Make it a five-minute habit. Open the list of overdue invoices, check the largest and oldest first and decide who calls whom. A routine that takes five minutes a day recovers more than an occasional big clean-up."]),
+   ("Step 5: Watch expiries a week ahead", [
+     "Renewals are easiest to win before they lapse. Look at memberships expiring in the next seven days and reach out personally to those who matter most. A short conversation about goals beats a generic notice."]),
+   ("Step 6: Notice who has stopped coming", [
+     "Members who stop visiting are the ones who will not renew. Check attendance for people who have not been seen in two weeks and send a friendly message. It costs almost nothing and recovers members who were quietly slipping away."]),
+   ("Step 7: Follow up on enquiries too", [
+     "Missed renewals are one kind of lost revenue. Unanswered enquiries are another. Track each lead with a next step and a date, so that nobody who showed interest is forgotten."]),
+   ("Where a command center helps", [
+     "These routines are much easier when expiring memberships, overdue invoices, inactive members and waiting leads appear on one screen. That is the idea behind the Attention Required view in <a href=\"/gym-command-center\">Gym Command Center</a>, our gym management platform, now in its final development phase with early access planned. For more on choosing software, see our <a href=\"/insights/gym-management-software-buying-guide\">gym software buying guide</a>."]),
+  ],
+  faq=[("How many payment reminders should a gym send?", "Two is a sensible starting point: one before the due date and one on or after it. More than that can feel like pressure, and reminders should stop once payment is received."),
+       ("What is the best time to contact a member about renewal?", "About a week before expiry is a good default. It leaves time for a conversation and avoids the awkwardness of chasing after the membership has already lapsed."),
+       ("How do I know which members are at risk of leaving?", "Attendance is the clearest signal. Members who have not visited for two weeks or more deserve a friendly check-in.")],
+  related=["gym-management-software-buying-guide", "whatsapp-automation-for-gyms"],
+  link=("/gym-command-center", "See Gym Command Center")),
 ]

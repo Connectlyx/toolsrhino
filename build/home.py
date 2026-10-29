@@ -11,7 +11,7 @@ FAQ_HOME = [
     ("Do I need any technical skills to use these systems?",
      "No. We build for business owners and shop-floor teams, not developers. If you can use WhatsApp, you can use our portals. We also train your staff as part of onboarding."),
     ("How long does setup take?",
-     "Most systems are ready within a few days of onboarding, depending on how much existing data has to be brought in. Larger or more bespoke builds are scoped with a clear timeline before any work begins."),
+     "It depends on the system and how much existing data has to be brought in. We agree a clear timeline with you before any work begins, and setup and team training are included."),
     ("Is my business data secure?",
      "Yes. Every client receives a separate, secure account with owner-level and staff-level access controls, so people only see what their role requires. We are happy to walk you through the details on a call."),
     ("Can the system be customised for my business?",
@@ -51,9 +51,10 @@ def build():
   <div class="wrap">
     <div class="hero-inner">
       <div class="lineage reveal"><a class="parent" href="{PARENT}" target="_blank" rel="noopener">Connectlyx</a>{ARROW_LONG}<span class="child"><img src="assets/img/logo-navy.png" alt="">ToolsRhino</span></div>
+      <div><a class="home-badge reveal" href="gym-command-center.html"><b>NEW</b> Gym Command Center: early access planned {ARROW}</a></div>
       <h1 class="h1 reveal" style="--d:.08s">Management systems and AI automation that work as hard as you do.</h1>
       <p class="lead reveal" style="--d:.16s">ToolsRhino is the specialist arm of Connectlyx for AI automation, SaaS product creation and custom management systems. We replace scattered spreadsheets, paper registers and endless WhatsApp threads with one secure portal your whole team can actually use.</p>
-      <div class="cta-row reveal" style="--d:.24s"><a class="btn btn-primary" href="services.html">Explore our services {ARROW}</a><a class="btn btn-ghost" href="{WA_DEMO}" target="_blank" rel="noopener">Book a live demo</a></div>
+      <div class="cta-row reveal" style="--d:.24s"><a class="btn btn-primary" href="services.html">Explore our services {ARROW}</a><a class="btn btn-ghost" href="{WA_DEMO}" target="_blank" rel="noopener">Book a demo</a></div>
       <div class="hero-tags reveal" style="--d:.32s"><span>AI automation</span><span>SaaS product creation</span><span>Management systems</span><span>English &amp; Urdu</span></div>
     </div>
     {mock}
@@ -106,26 +107,34 @@ def build():
       [("Tenant · Acme Foods", "Workspace provisioned", "", "Active"), ("Plan · Growth", "Billed monthly, 14-day trial", "b", "Live"), ("Release 1.4", "Deployed to production", "", "Passing")])}
   </div></div></section>'''
 
+    from gcc import dashboard
+    feature = f'''<section class="sec feature-band"><div class="wrap" style="max-width:1160px">
+  {head("Our first SaaS product", "Meet Gym Command Center.", "A gym management platform for owners who want one dashboard for members, billing, attendance and leads, with a clear view of what needs attention first.")}
+  {dashboard()}
+  <div class="cta-row reveal" style="margin-top:44px"><a class="btn btn-primary" href="gym-command-center.html">Explore Gym Command Center {ARROW}</a><a class="btn btn-ghost" href="contact.html?interest=gym-command-center">Join the early-access list</a></div>
+  <p class="g-note">Illustrative preview with sample data. Early access is planned once onboarding, security and core workflows are verified.</p>
+</div></section>'''
+
     stats = f'''<section class="sec-tight"><div class="wrap"><div class="stats reveal">
   <div class="stat"><b data-count="8" data-suffix="+">8+</b><span>Industry systems in development</span></div>
   <div class="stat"><b>24/7</b><span>AI assistant support built into every portal</span></div>
   <div class="stat"><b data-count="2">2</b><span>Languages supported, English and Urdu</span></div>
-  <div class="stat"><b>Days</b><span>From onboarding to go-live for most systems</span></div>
+  <div class="stat"><b>Free</b><span>Setup and team training included with every project</span></div>
 </div></div></section>'''
 
     SL = ["rice-mill-management-software", "flour-mill-management-software", "textile-mill-management-software", "poultry-dairy-farm-management-software",
-          "gym-management-software", "clinic-management-software", "restaurant-cafe-management-software"]
+          "GCC", "clinic-management-software", "restaurant-cafe-management-software"]
     def ind(ic, t, d, pill, kind, i):
-        lk = f'<p style="margin-top:14px"><a class="link-arrow" href="industries/{SL[i]}.html">Learn more {ARROW}</a></p>' if i < len(SL) else ""
+        lk = f'<p style="margin-top:14px"><a class="link-arrow" href="{"gym-command-center" if SL[i] == "GCC" else "industries/" + SL[i]}.html">Learn more {ARROW}</a></p>' if i < len(SL) else ""
         return card(ic, t, d, f'<span class="pill {kind}">{pill}</span>' + lk, delay=i * .05)
     inds = f'''<section class="sec light"><div class="wrap">
   {head("Industries", "Built for the businesses that run on the ground.", "From mills and farms to clinics and cafés, the same intelligent foundation, adapted to how each industry actually works.")}
   <div class="grid g4">
-    {ind("wheat", "Rice Mill Management", "Orders, staff and payroll, client tracking, deliveries, live reports and a bilingual AI assistant in one portal.", "Live &amp; available", "live", 0)}
+    {ind("wheat", "Rice Mill Management", "Orders, staff and payroll, client tracking, deliveries, live reports and a bilingual AI assistant in one portal.", "In development", "dev", 0)}
     {ind("wheat", "Flour Mill Management", "Production tracking, inventory, orders and accounts built around flour mill operations.", "In development", "dev", 1)}
     {ind("shirt", "Textile Mill Management", "Production stages, staff and client order tracking for fabric and garment manufacturing.", "In development", "dev", 2)}
     {ind("barn", "Poultry, Cattle &amp; Dairy Farms", "Flock and herd records, feed tracking, health monitoring and sales management.", "In development", "dev", 3)}
-    {ind("dumbbell", "Gym Management", "Member sign-ups, attendance, renewals and payment reminders, fully automated.", "In development", "dev", 4)}
+    {ind("dumbbell", "Gym Command Center", "Members, memberships, invoices, payments, attendance and leads in one dashboard for gym owners.", "Early access planned", "dev", 4)}
     {ind("clinic", "Clinic Management", "Patient records, appointment booking, billing and automated follow-up reminders.", "In development", "dev", 5)}
     {ind("coffee", "Café &amp; Restaurant Management", "Orders, inventory, staff shifts and sales reporting for food businesses.", "In development", "dev", 6)}
     {ind("sparkle", "Your industry, built to order", "Pharmacies, schools, warehouses, retail, logistics and more. If it has a process, we can systemise it.", "Custom build", "custom", 7)}
@@ -136,7 +145,7 @@ def build():
     steps = f'''<section class="sec"><div class="wrap">
   {head("How it works", "From first conversation to fully live, in four steps.", "No lengthy IT project. No jargon. You stay in control of what gets built and when.")}
   <div class="steps">
-    <div class="step reveal"><div class="n">01</div><h3>Discover</h3><p>A short call or live demo. We learn how your business runs today and where time and money quietly leak.</p></div>
+    <div class="step reveal"><div class="n">01</div><h3>Discover</h3><p>A short call or demo. We learn how your business runs today and where time and money quietly leak.</p></div>
     <div class="step reveal" style="--d:.08s"><div class="n">02</div><h3>Design</h3><p>We map your workflows into a clear blueprint: modules, roles, reports and the automations worth building first.</p></div>
     <div class="step reveal" style="--d:.16s"><div class="n">03</div><h3>Build &amp; configure</h3><p>We set up your portal, bring in your existing data and connect the tools you already use, such as WhatsApp.</p></div>
     <div class="step reveal" style="--d:.24s"><div class="n">04</div><h3>Launch &amp; grow</h3><p>We train your team, go live with you and keep improving the system as your business changes.</p></div>
@@ -177,7 +186,7 @@ def build():
   {head("Questions, answered", "Things business owners ask us first.")}
   {faq_html(FAQ_HOME)}</div></section>'''
 
-    body = hero + marquee + lineage + tabs + stats + inds + steps + why + est + teaser + faq + cta_band()
+    body = hero + marquee + lineage + tabs + feature + stats + inds + steps + why + est + teaser + faq + cta_band()
     return page("index.html",
                 "AI Automation & Custom Management Systems | ToolsRhino",
                 "ToolsRhino, a Connectlyx company, builds AI automation, SaaS products and custom management systems for mills, clinics, gyms and growing businesses.",

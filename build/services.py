@@ -14,7 +14,7 @@ FAQ_SERVICES = [
     ("Which service should I start with?",
      "Most clients begin with a management system, because it puts the foundations in place: clean data, clear roles and one source of truth. AI automation then plugs into that foundation. If you are building a software product to sell, start with SaaS product creation instead."),
     ("Do you work with small businesses or only large companies?",
-     "Both. Our portals are designed so that a single-site business can be running within days, while the same architecture scales to multi-branch operations."),
+     "Both. Our portals are designed so that a single-site business can start small, while the same architecture scales to multi-branch operations."),
     ("Can you connect to the tools we already use?",
      "In most cases, yes. We integrate with WhatsApp Business, email and SMS providers, payment gateways, accounting tools and spreadsheets through their official APIs or structured imports."),
     ("What happens after the system goes live?",
@@ -74,7 +74,7 @@ FAQ_MS = [
     ("What is a management system, in plain terms?",
      "It is a single secure portal where the daily running of your business lives: orders, stock, staff, payments, deliveries and reports. Instead of five spreadsheets and a notebook, everyone works from the same live information."),
     ("How is this different from a large ERP package?",
-     "Traditional ERP software is powerful but heavy, expensive to configure and built for big corporations. Our systems are lighter and tailored to your industry, so your team learns them in days and you pay only for what you actually use."),
+     "Traditional ERP software is powerful but heavy, expensive to configure and built for big corporations. Our systems are lighter and tailored to your industry, so your team learns them quickly and you pay only for what you actually use."),
     ("Can it replace our Excel sheets?",
      "Yes. We import your existing sheets, clean them and move the logic into the portal, including formulas, ledgers and reports. You keep the ability to export to Excel whenever you like."),
     ("Will it work on phones?",
@@ -89,12 +89,12 @@ SLUGS = ['rice-mill-management-software', 'flour-mill-management-software', 'tex
 
 def management():
     hero = page_hero("Management Systems", "Management systems that finally match the way you work.",
-        "Custom management system development for industries and businesses: one portal for operations, people, payments and reporting, designed around your workflow and ready within days.")
+        "Custom management system development for industries and businesses: one portal for operations, people, payments and reporting, designed around your workflow and set up without a lengthy IT project.")
     what = f'''<section class="sec"><div class="wrap"><div class="split">
   <div class="reveal"><span class="eyebrow">What it is</span><h2 class="h2">One source of truth for the whole business.</h2>
     <p>Most growing businesses did not choose their tools; they inherited them. A spreadsheet for orders, a notebook for staff attendance, a WhatsApp group for deliveries, and an accountant who reconciles it all at month-end.</p>
     <p>A management system replaces that patchwork with a single, secure portal. Every order, payment and shift is recorded once, visible to the people who need it, and reflected instantly in your reports. It is business management software, but tailored to your sector and your habits rather than a one-size-fits-all package.</p>
-    <p style="margin-top:26px"><a class="btn btn-blue" href="{WA_DEMO}" target="_blank" rel="noopener">See a live demo {ARROW}</a></p></div>
+    <p style="margin-top:26px"><a class="btn btn-blue" href="{WA_DEMO}" target="_blank" rel="noopener">Book a demo {ARROW}</a></p></div>
   <div class="reveal" style="--d:.1s"><div class="vis" style="aspect-ratio:1">{vis([("Order #2041", "Client: Al-Noor Traders", "", "Dispatched"), ("Payment received", "$4,250 · Bank transfer", "b", "Matched"), ("Attendance", "36 of 38 staff present", "", "Today"), ("Stock level", "Super Kernel · 42.6 t", "b", "Healthy")])}</div></div>
 </div></div></section>'''
 
@@ -124,12 +124,12 @@ def management():
     modules = f'<section class="sec"><div class="wrap">{head("Modules", "Everything your operation needs, nothing it doesn’t.", "We assemble the portal from proven modules, then shape each one to your workflow. Start small and add more as you grow.")}{mgrid}</div></section>'
 
     inds = ["Rice mills", "Flour mills", "Textile units", "Poultry, cattle &amp; dairy", "Gyms &amp; fitness", "Clinics", "Cafés &amp; restaurants", "Pharmacies", "Schools", "Warehouses", "Retail &amp; distribution", "Logistics"]
-    ind = f'''<section class="sec light"><div class="wrap">{head("Industries", "Proven foundations, tailored to your sector.", "Our rice mill management system is live today, and further industry systems are on the way. If yours is not listed, we build it to order.")}
+    ind = f'''<section class="sec light"><div class="wrap">{head("Industries", "Proven foundations, tailored to your sector.", "Our industry systems are in development, starting with rice mills. If yours is not listed, we build it to order.")}
   <div class="chips reveal" style="justify-content:center">{"".join((f"<a href='industries/{SLUGS[n]}.html' style='padding:9px 18px;border-radius:999px;border:1px solid #CDE4F6;background:#fff;color:var(--navy);font-size:14.5px'>{i}</a>" if n < len(SLUGS) else f"<span style='background:#fff;border-color:#CDE4F6;color:var(--navy)'>{i}</span>") for n, i in enumerate(inds))}</div>
   <p class="center reveal" style="margin-top:40px"><a class="link-arrow" href="industries.html">Browse industry systems {ARROW}</a></p></div></section>'''
 
     proc = f'''<section class="sec"><div class="wrap">{head("Our process", "How we build your management system.")}{timeline([
-        ("Discovery and demo", "We sit with you, understand how work flows through the business and show a live example from your sector."),
+        ("Discovery and demo", "We sit with you, understand how work flows through the business and show you how it would work for your sector."),
         ("Blueprint", "Modules, user roles, reports and integrations are agreed on paper before a line of code is written."),
         ("Build and data migration", "We configure the portal, import your existing records and connect WhatsApp, email and payment tools."),
         ("Training and go-live", "Your team learns on real data, with us beside them. Then you switch over, confidently."),
