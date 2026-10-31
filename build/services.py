@@ -43,6 +43,11 @@ def services():
        "saas-development.html", [("Workspace", "Provisioned in 8 seconds", "", "Active"), ("Subscription", "Growth plan, renews monthly", "b", "Billing"), ("Release", "v1.4 deployed", "", "Passing")])}
 </div></section>'''
 
+    gcc_strip = f'''<section class="sec-tight"><div class="wrap"><div class="gcc-strip reveal">
+  <div><span class="badge-early">Early access planned</span><h2>Proof we build what we preach: Gym Command Center.</h2>
+  <p>Alongside client projects we are building our own SaaS product, a gym management platform that brings members, billing, attendance and leads into one dashboard. It is the same approach we bring to your system.</p></div>
+  <div class="gcc-strip-cta"><a class="btn btn-primary" href="gym-command-center.html">Explore Gym Command Center {ARROW}</a></div></div></div></section>'''
+
     extras = f'''<section class="sec light"><div class="wrap">
   {head("Wrapped around every project", "The supporting work that makes software stick.", "Good systems fail when the surrounding details are ignored. These are included in how we work, not sold as afterthoughts.")}
   <div class="grid g3">
@@ -63,7 +68,7 @@ def services():
   </div></div></section>'''
 
     faq = f'<section class="sec" style="padding-top:20px"><div class="wrap">{head("FAQ", "About our services")}{faq_html(FAQ_SERVICES)}</div></section>'
-    body = hero + main + extras + models + faq + cta_band()
+    body = hero + main + gcc_strip + extras + models + faq + cta_band()
     return page("services.html", "AI Automation & Management System Services | ToolsRhino",
                 "Explore ToolsRhino's services: custom management system development, AI automation, workflow automation and SaaS product creation for businesses worldwide.",
                 body, label="Services", schemas=[faq_schema(FAQ_SERVICES), {"@context": "https://schema.org", "@type": "Service", "name": "AI automation, SaaS and management system development", "provider": {"@type": "Organization", "name": "ToolsRhino", "url": SITE}, "areaServed": "Worldwide"}])

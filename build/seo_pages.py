@@ -87,7 +87,7 @@ def article_page(a):
     rel = "".join(post_card(ART[r], n * .06) for n, r in enumerate(a["related"]))
     body = hero + f'''<section class="sec" style="padding-top:20px"><div class="wrap"><div class="article-wrap">
   <article class="prose">{toc}{secs}
-    <div class="callout reveal"><strong>Want this done for your business?</strong> {a["link"][1]} is a good next step, or <a href="contact.html">tell us what you need</a> and we will reply within one business day.
+    <div class="callout reveal"><strong>Want this done for your business?</strong> <a href="contact.html">Tell us what you need</a> and we will reply within one business day, or take the next step below.
       <p style="margin-top:16px"><a class="btn btn-blue btn-sm" href="{a["link"][0]}">{a["link"][1]} {ARROW}</a></p></div>
     <h2 id="faq">Frequently asked questions</h2><div class="faq" style="margin:0">{faqs}</div>
   </article></div></div></section>

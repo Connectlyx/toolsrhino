@@ -16,7 +16,7 @@ def _sidebar(active):
 
 
 def _frame(active, title, sub, body, btn="+ New member"):
-    return f'''<div class="g-frame reveal"><div class="g-app">{_sidebar(active)}
+    return f'''<div class="g-frame"><div class="g-app">{_sidebar(active)}
 <div class="g-main"><div class="g-top"><div><h4>{title}</h4><small>{sub}</small></div>
 <div class="g-tools"><div class="g-search">Search members, invoices…</div><div class="g-btn">{btn}</div><div class="g-avatar">NF</div></div></div>{body}</div></div></div>'''
 

@@ -33,8 +33,11 @@
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px -4% 0px' });
     revealEls.forEach(function (el) { io.observe(el); });
+    /* safety net: never leave content hidden if the observer misses an element */
+    var sweep = function () { revealEls.forEach(function (el) { if (!el.classList.contains('in')) { var r = el.getBoundingClientRect(); if (r.top < window.innerHeight * 0.96) { el.classList.add('in'); } } }); };
+    window.addEventListener('scroll', sweep, { passive: true }); window.addEventListener('resize', sweep); setTimeout(sweep, 600); setTimeout(function () { revealEls.forEach(function (el) { el.classList.add('in'); }); }, 6000);
   } else { revealEls.forEach(function (el) { el.classList.add('in'); }); }
 
   /* ---------- cursor light on cards ---------- */

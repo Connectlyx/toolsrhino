@@ -679,3 +679,15 @@ html:not(.js) .panel.shot{display:block;margin-bottom:30px}
 .light .loop .st::after{color:#0047AB}
 .g-tl>div>div{display:block;line-height:1.35}.g-tl>div>div:last-child{white-space:nowrap}
 .home-badge svg{width:14px;height:14px;flex:none}
+/* equal-height cards: push badges and links to a common baseline */
+.grid>.card{display:flex;flex-direction:column;align-items:flex-start}
+.grid>.card>h3+p{flex:1 1 auto}
+.grid>.card>.pill{margin-top:14px}
+.grid>.card>p:last-child:not(:first-of-type){margin-top:12px}
+.gcc-strip{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;padding:40px 44px;border-radius:28px;border:1px solid rgba(139,123,255,.35);background:radial-gradient(90% 140% at 90% 0%,rgba(106,86,240,.3),transparent 60%),rgba(10,20,49,.8)}
+.gcc-strip h2{font-size:clamp(1.5rem,2.4vw,2rem);margin:14px 0 10px}
+.gcc-strip p{color:var(--dim);max-width:62ch}
+@media (max-width:860px){.gcc-strip{grid-template-columns:1fr;padding:30px 24px}}
+.btn{white-space:normal;text-align:center;max-width:100%}
+@media (max-width:560px){.callout .btn{width:100%;justify-content:center}}
+.btn{height:auto;min-height:var(--h);padding-block:10px;line-height:1.25}

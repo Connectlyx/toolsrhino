@@ -156,7 +156,7 @@ def footer():
   </div>
 </footer>
 <a class="fab" href="{WA}" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">{WA_SVG}</a>
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v=5" defer></script>
 '''
 
 
@@ -240,7 +240,7 @@ def page(slug, title, desc, body, label=None, schemas=None, nav_cur=None, trail=
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=5">
 <script>document.documentElement.classList.add('js')</script>
 {ld}</head>
 <body>
